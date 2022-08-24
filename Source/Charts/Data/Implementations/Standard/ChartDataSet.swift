@@ -424,6 +424,11 @@ extension ChartDataSet: MutableCollection {
             entries[position] = newValue
         }
     }
+    
+    public func replaceSubrange<C>(_ subrange: Swift.Range<Index>, with newElements: C) where C : Collection, Element == C.Element { 
+     entries.replaceSubrange(subrange, with: newElements) 
+     notifyDataSetChanged() 
+    } 
 }
 
 // MARK: RandomAccessCollection
